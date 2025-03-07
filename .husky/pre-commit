@@ -1,0 +1,2 @@
+yarn cspell:check
+npx lint-staged

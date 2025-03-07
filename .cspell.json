@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "flagWords": [],
+  "dictionaries": ["custom-words"],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom-words",
+      "path": ".cspell.txt",
+      "addWords": true
+    }
+  ],
+  "ignorePaths": [
+    ".cspell.txt",
+    ".github/workflows/**",
+    ".vscode/*.json",
+    "**/.svg",
+    "**/.vercel",
+    "**/dist/**",
+    "**/build/**",
+    "**/locales/**",
+    "**/node_modules/**",
+    "**/**/CHANGELOG.md",
+    "**/**/CONTRIBUTORS.md",
+    "pnpm-lock.yaml",
+    "yarn.lock",
+    "package.json",
+    "docker-compose.**.yml",
+    "sonar-project.properties",
+    "sonar-project.example.properties",
+    "Dockerfile.dev",
+    "README.md"
+  ]
+}
