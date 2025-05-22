@@ -115,6 +115,11 @@ const eslintConfig = [
       "prefer-template": ["error"],
       quotes: ["error", "double"]
     }
+  },
+
+  // Ignore CSS
+  {
+    ignorePatterns: ["**/*.css"]
   }
 ]
 
