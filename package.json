@@ -1,10 +1,10 @@
 {
-  "name": "hahahaha",
+  "name": "task-manager-5s3s",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
   "author": "Le Huu Tai - taile06121998@gmail.com",
-  "description": "XXX",
+  "description": "5s3s Task Manager",
   "engines": {
     "node": "20.17.0",
     "npm": "please-use-yarn"
