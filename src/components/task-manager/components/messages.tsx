@@ -1,7 +1,7 @@
 import { Loader2, Save } from "lucide-react"
 
-import BoldText from "../bold-text"
 import { TMessage } from "../types"
+import BoldText from "./bold-text"
 
 type TMessagesProps = {
   messages: TMessage[]

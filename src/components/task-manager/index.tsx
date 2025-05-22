@@ -170,7 +170,7 @@ const TaskManager = () => {
                   value={userRequest}
                   onChange={handleInputChange}
                   placeholder="Describe your task here..."
-                  className="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                  className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
                   disabled={loading}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {
