@@ -26,6 +26,7 @@ A web-based application that allows users to manage tasks using AI. Users can in
 ### 💼 Prerequisites
 
 - Please use the Node version specified in the `.nvmrc` file.
+- Please create a `.env` file based on the `.env.example` file.
 - Node.js `v20.17.0` or later
 - yarn `v1.22.21`
 
