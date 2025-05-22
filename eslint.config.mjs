@@ -103,7 +103,14 @@ const eslintConfig = [
       "react/button-has-type": "warn",
       "object-curly-spacing": ["warn", "always"],
       "max-classes-per-file": ["error", 10],
-      "@typescript-eslint/no-unused-vars": ["warn", { vars: "all", args: "none" }],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          vars: "all",
+          args: "none",
+          caughtErrorsIgnorePattern: "^error$"
+        }
+      ],
       "prefer-arrow-callback": ["error"],
       "prefer-template": ["error"],
       quotes: ["error", "double"]
