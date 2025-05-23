@@ -1,4 +1,4 @@
-# AI Task Manager
+# AI Task Manager [[Link Demo]](https://5s3s-task-manager.vercel.app/)
 
 A web-based application that allows users to manage tasks using AI. Users can input task requests, generate detailed task drafts using AI, and store them in a database.
 
@@ -47,10 +47,16 @@ yarn install
 yarn
 ```
 
-- Start the development server:
+- Start the `development` server:
 
 ```bash
 yarn dev
+```
+
+- If you want to run the project using `Docker`:
+
+```bash
+docker-compose up
 ```
 
 - Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
