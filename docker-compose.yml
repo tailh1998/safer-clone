@@ -3,14 +3,12 @@ version: "3.8"
 services:
   web:
     container_name: task-manager-5s3s-dev
-    image: node:20.17.0-alpine
-    working_dir: /app
+    build: .
     ports:
       - "3000:3000"
     volumes:
       - .:/app
       - /app/node_modules  # Prevents host-node_modules conflicts
-    command: sh -c "yarn install && yarn dev"
     environment:
       - NODE_ENV=development
     tty: true # [DON'T REMOVE `tty: true`], BECAUSE The container might exit immediately in some cases (especially if your entry command completes), or it might behave unexpectedly with logging or signal handling.
