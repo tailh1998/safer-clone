@@ -21,16 +21,27 @@ import {
   TableRow
 } from "@/components/ui/table"
 
+import { useToast } from "@/hooks/use-toast"
+
+import { deleteTask } from "@/lib/task-service"
 import type { Task } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
 
+import WarningPopup from "./warning-popup"
+
 interface TaskTableProps {
   tasks: Task[]
+  loadTasks: VoidFunction
   isLoading: boolean
 }
 
-export function TaskTable({ tasks, isLoading }: TaskTableProps) {
+export function TaskTable({ tasks, loadTasks, isLoading }: TaskTableProps) {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [isOpen, setIsOpen] = useState(false)
+  const [isDeleteLoading, setIsDeleteLoading] = useState(false)
+
+  const { toast } = useToast()
 
   if (isLoading) {
     return (
@@ -46,6 +57,30 @@ export function TaskTable({ tasks, isLoading }: TaskTableProps) {
         <p className="text-muted-foreground">No tasks found</p>
       </div>
     )
+  }
+
+  const onBtnDeleteClick = (id: string) => {
+    setSelectedId(id)
+    setIsOpen(true)
+  }
+
+  const handleDeleteTask = async () => {
+    if (selectedId) {
+      try {
+        setIsDeleteLoading(true)
+        await deleteTask(selectedId)
+      } catch (error) {
+        console.error("Failed to delete task:", error)
+      } finally {
+        setIsDeleteLoading(false)
+        loadTasks()
+        setIsOpen(false)
+        toast({
+          title: "Delete Success",
+          description: "Your task has been deleted successfully."
+        })
+      }
+    }
   }
 
   return (
@@ -72,13 +107,23 @@ export function TaskTable({ tasks, isLoading }: TaskTableProps) {
                     {formatDate(task.submissionDate)}
                   </TableCell>
                   <TableCell className="text-right">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setSelectedTask(task)}
-                    >
-                      View
-                    </Button>
+                    <div className="flex justify-end gap-1">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setSelectedTask(task)}
+                      >
+                        View
+                      </Button>
+                      <Button
+                        className="border-red-500 hover:border-red-700 hover:bg-red-500 text-red-500 hover:text-white  "
+                        variant="outline"
+                        size="sm"
+                        onClick={() => onBtnDeleteClick(task.id)}
+                      >
+                        Delete
+                      </Button>
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}
@@ -126,6 +171,14 @@ export function TaskTable({ tasks, isLoading }: TaskTableProps) {
           )}
         </DialogContent>
       </Dialog>
+
+      <WarningPopup
+        isLoading={isDeleteLoading}
+        handleDeleteTask={handleDeleteTask}
+        setSelectedId={setSelectedId}
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+      />
     </>
   )
 }

@@ -69,6 +69,7 @@ export default function DashboardPage() {
               />
             </div>
             <TaskTable
+              loadTasks={loadTasks}
               tasks={filteredTasks}
               isLoading={isLoading}
             />
