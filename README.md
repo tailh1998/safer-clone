@@ -7,7 +7,7 @@ A web-based application that allows users to manage tasks using AI. Users can in
 ## 📦 Features
 
 - **AI-Powered Task Creation**: Generate detailed task drafts from simple requests
-- **Task Management Dashboard**: View, search, and manage all your submitted tasks
+- **Task Management Dashboard**: View, delete, search, and manage all your submitted tasks
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **Dark/Light Mode**: Choose your preferred theme
 - **Local Storage**: Tasks are stored in your browser's local storage
@@ -65,18 +65,19 @@ docker-compose up
 
 ### Creating a Task
 
-1. Navigate to the "Create Task" page
+1. Navigate to the `Create Task` page
 2. Enter your task request in the text area
-3. Click "Generate Draft" to let AI create a detailed task
+3. Click `Generate Draft` to let AI create a detailed task
 4. Review the generated draft in the preview section
-5. Click "Submit Task Draft" to save the task
+5. Click `Submit Task Draft` to save the task
 
 ### Viewing Tasks
 
-1. Navigate to the "Dashboard" page
+1. Navigate to the `Dashboard` page
 2. Browse all submitted tasks in the table
 3. Use the search box to filter tasks
-4. Click "View" on any task to see full details
+4. Click `View` on any task to see full details
+5. Click `Delete` to remove a task from `Dashboard`
 
 ## Project Structure
 
