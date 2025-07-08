@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import type React from "react"
 
-import { Header } from "@/components/header"
 import ThemeProvider from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 
@@ -11,8 +10,9 @@ import "./global.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "5s3s Task Manager",
-  description: "Create and manage tasks with AI assistance"
+  title: "Pallet Racking, Warehouse Automation & Storage System Supplier",
+  description:
+    "Safer Storage Systems is Australia's leading Pallet Racking and Warehouse Storage experts with local manufacturing capabilities. Contact our team today!"
 }
 
 export default function RootLayout({
@@ -32,10 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-          </div>
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>

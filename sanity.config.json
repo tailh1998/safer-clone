@@ -1,0 +1,59 @@
+{
+  "name": "safer-storage-cms",
+  "title": "Safer Storage Systems CMS",
+  "projectId": "your-project-id",
+  "dataset": "production",
+  "plugins": ["@sanity/vision"],
+  "schema": {
+    "types": [
+      {
+        "name": "page",
+        "title": "Page",
+        "type": "document",
+        "fields": [
+          {
+            "name": "title",
+            "title": "Title",
+            "type": "string"
+          },
+          {
+            "name": "slug",
+            "title": "Slug",
+            "type": "slug",
+            "options": {
+              "source": "title"
+            }
+          },
+          {
+            "name": "content",
+            "title": "Content",
+            "type": "array",
+            "of": [{ "type": "block" }]
+          }
+        ]
+      },
+      {
+        "name": "service",
+        "title": "Service",
+        "type": "document",
+        "fields": [
+          {
+            "name": "title",
+            "title": "Title",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "title": "Description",
+            "type": "text"
+          },
+          {
+            "name": "image",
+            "title": "Image",
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+}

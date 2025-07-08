@@ -1,10 +1,10 @@
 {
-  "name": "task-manager-5s3s",
+  "name": "safer-storage-systems",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
   "author": "Le Huu Tai - taile06121998@gmail.com",
-  "description": "5s3s Task Manager",
+  "description": "Safer Storage Systems",
   "engines": {
     "node": ">=20.17.0",
     "yarn": ">=1.22.0"
@@ -29,6 +29,9 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.12",
     "@radix-ui/react-toast": "^1.2.14",
+    "@sanity/client": "^6.21.3",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.57.4",
     "@t3-oss/env-nextjs": "^0.12.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -36,11 +39,13 @@
     "lucide-react": "^0.511.0",
     "mime-types": "^2.1.35",
     "next": "15.2.1",
+    "next-sanity": "^9.8.9",
     "next-themes": "^0.4.6",
     "prettier": "^3.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
+    "sanity": "^3.57.4",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"
@@ -67,6 +72,7 @@
     "lint-staged": "^15.4.3",
     "postcss": "^8.5.3",
     "rimraf": "^6.0.1",
+    "styled-components": "^6.1.19",
     "tailwindcss": "3.4.1",
     "typescript": "^5"
   }

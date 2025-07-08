@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   web:
-    container_name: task-manager-5s3s-dev
+    container_name: safer-storage-systems
     build: .
     ports:
       - "3000:3000"
