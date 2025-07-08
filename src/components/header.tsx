@@ -137,9 +137,9 @@ export function Header() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-80"
+                className="w-80 overflow-y-auto"
               >
-                <div className="flex flex-col space-y-4 mt-8">
+                <div className="flex flex-col space-y-4 mt-8 pb-8">
                   <div className="mb-4">
                     <Image
                       src="/images/sss-gonvarri-logo.png"
@@ -154,35 +154,37 @@ export function Header() {
                     CONTACT US
                   </Button>
                   <Button className="bg-black hover:bg-gray-800 text-white w-full">ABOUT US</Button>
-                  <div className="border-t pt-4">
-                    {navigationItems.map((item) => (
-                      <div
-                        key={item.name}
-                        className="mb-4"
-                      >
-                        <Link
-                          href={item.href}
-                          className="text-gray-800 hover:text-green-600 font-bold py-2 block"
-                          onClick={() => setIsOpen(false)}
+                  <div className="border-t pt-4 flex-1 min-h-0">
+                    <div className="space-y-4 max-h-full overflow-y-auto">
+                      {navigationItems.map((item) => (
+                        <div
+                          key={item.name}
+                          className="mb-4"
                         >
-                          {item.name}
-                        </Link>
-                        {item.hasDropdown && (
-                          <div className="ml-4 mt-2 space-y-1">
-                            {item.dropdownItems?.map((dropdownItem) => (
-                              <Link
-                                key={dropdownItem.name}
-                                href={dropdownItem.href}
-                                className="text-sm text-gray-600 hover:text-green-600 block py-1"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {dropdownItem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                          <Link
+                            href={item.href}
+                            className="text-gray-800 hover:text-green-600 font-bold py-2 block"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {item.name}
+                          </Link>
+                          {item.hasDropdown && (
+                            <div className="ml-4 mt-2 space-y-1">
+                              {item.dropdownItems?.map((dropdownItem) => (
+                                <Link
+                                  key={dropdownItem.name}
+                                  href={dropdownItem.href}
+                                  className="text-sm text-gray-600 hover:text-green-600 block py-1"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {dropdownItem.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </SheetContent>
@@ -279,10 +281,7 @@ export function Header() {
             )}
 
             {/* Mobile navigation - always visible */}
-            <div className="lg:hidden flex items-center justify-between w-full">
-              <div className="flex items-center space-x-4">
-                <span className="text-gray-800 font-bold text-sm">Menu</span>
-              </div>
+            <div className="lg:hidden flex items-center justify-end w-full">
               <div className="flex items-center">
                 {!isSearchOpen ? (
                   <button
