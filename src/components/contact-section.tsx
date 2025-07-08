@@ -1,8 +1,9 @@
+import { Clock, Mail, MapPin, Phone } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
 export function ContactSection() {
   return (
@@ -10,7 +11,9 @@ export function ContactSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-          <p className="text-xl text-gray-600">Ready to optimize your storage? Contact us for a free consultation.</p>
+          <p className="text-xl text-gray-600">
+            Ready to optimize your storage? Contact us for a free consultation.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -25,11 +28,20 @@ export function ContactSection() {
                   <Input placeholder="Last Name" />
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <Input placeholder="Email" type="email" />
-                  <Input placeholder="Phone" type="tel" />
+                  <Input
+                    placeholder="Email"
+                    type="email"
+                  />
+                  <Input
+                    placeholder="Phone"
+                    type="tel"
+                  />
                 </div>
                 <Input placeholder="Company" />
-                <Textarea placeholder="Tell us about your project..." rows={4} />
+                <Textarea
+                  placeholder="Tell us about your project..."
+                  rows={4}
+                />
                 <Button className="bg-green-600 hover:bg-green-700 w-full">Send Message</Button>
               </CardContent>
             </Card>
