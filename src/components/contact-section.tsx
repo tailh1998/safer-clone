@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin, Phone } from "lucide-react"
+import { Clock, MailsIcon, MapPin, Phone } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -59,7 +59,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-center space-x-3 mb-4">
-                  <Mail className="w-5 h-5 text-green-600" />
+                  <MailsIcon className="w-5 h-5 text-green-600" />
                   <div>
                     <div className="font-semibold">Email</div>
                     <div className="text-gray-600">info@saferstoragesystems.com.au</div>
