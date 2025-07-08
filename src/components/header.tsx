@@ -4,13 +4,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
-import { ChevronDown, Menu, Search } from "lucide-react"
+import { ChevronDown, Menu, Search, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const navigationItems = [
     {
@@ -77,6 +78,14 @@ export function Header() {
     { name: "BROCHURES", href: "/brochures", hasDropdown: false },
     { name: "NEWS & PROJECTS", href: "/news-projects", hasDropdown: false }
   ]
+
+  const handleSearchClick = () => {
+    setIsSearchOpen(true)
+  }
+
+  const handleSearchClose = () => {
+    setIsSearchOpen(false)
+  }
 
   return (
     <header className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm border-b border-gray-100">
@@ -182,60 +191,135 @@ export function Header() {
         </div>
       </div>
 
-      {/* Navigation bar */}
+      {/* Navigation bar - Fixed height container */}
       <div className="border-t border-gray-200">
         <div className="container mx-auto px-4">
-          <nav className="hidden lg:flex items-center justify-between py-4">
-            <div className="flex items-center space-x-8">
-              {navigationItems.map((item) => (
-                <div
-                  key={item.name}
-                  className="relative group"
-                >
-                  {item.hasDropdown ? (
-                    <>
-                      <Link
-                        href={item.href}
-                        className="flex items-center space-x-1 text-gray-800 hover:text-green-600 font-bold text-sm transition-colors py-2"
-                      >
-                        <span>{item.name}</span>
-                        <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-                      </Link>
-
-                      {/* Hover Dropdown */}
-                      <div className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <div className="grid grid-cols-2 gap-1 p-4">
-                          {item.dropdownItems?.map((dropdownItem) => (
-                            <Link
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              className="text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-gray-50 p-2 rounded transition-colors"
-                            >
-                              {dropdownItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="text-gray-800 hover:text-green-600 font-bold text-sm transition-colors py-2"
+          {/* Fixed height container to prevent layout shift */}
+          <div className="h-16 flex items-center justify-between">
+            {!isSearchOpen ? (
+              /* Normal Navigation */
+              <>
+                <nav className="hidden lg:flex items-center space-x-8">
+                  {navigationItems.map((item) => (
+                    <div
+                      key={item.name}
+                      className="relative group"
                     >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </div>
+                      {item.hasDropdown ? (
+                        <>
+                          <Link
+                            href={item.href}
+                            className="flex items-center space-x-1 text-gray-800 hover:text-green-600 font-bold text-sm transition-colors py-2"
+                          >
+                            <span>{item.name}</span>
+                            <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                          </Link>
 
-            {/* Search icon */}
-            <div className="flex items-center">
-              <Search className="w-5 h-5 text-green-600 cursor-pointer hover:text-green-700" />
+                          {/* Hover Dropdown */}
+                          <div className="absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div className="grid grid-cols-2 gap-1 p-4">
+                              {item.dropdownItems?.map((dropdownItem) => (
+                                <Link
+                                  key={dropdownItem.name}
+                                  href={dropdownItem.href}
+                                  className="text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-gray-50 p-2 rounded transition-colors"
+                                >
+                                  {dropdownItem.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="text-gray-800 hover:text-green-600 font-bold text-sm transition-colors py-2"
+                        >
+                          {item.name}
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                </nav>
+
+                {/* Search icon */}
+                <div className="hidden lg:flex items-center">
+                  <button
+                    type="button"
+                    onClick={handleSearchClick}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  >
+                    <Search className="w-5 h-5 text-green-600 hover:text-green-700" />
+                  </button>
+                </div>
+              </>
+            ) : (
+              /* Search Interface - Same height as navigation */
+              <>
+                <div className="hidden lg:flex flex-1 items-center">
+                  <input
+                    type="text"
+                    placeholder="Search ..."
+                    className="w-full px-4 py-2 text-base border-0 bg-transparent focus:outline-none text-gray-700 placeholder-gray-500"
+                    autoFocus
+                  />
+                </div>
+
+                {/* Close X button */}
+                <div className="hidden lg:flex items-center">
+                  <button
+                    type="button"
+                    onClick={handleSearchClose}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  >
+                    <X className="w-5 h-5 text-gray-600 hover:text-gray-800" />
+                  </button>
+                </div>
+              </>
+            )}
+
+            {/* Mobile navigation - always visible */}
+            <div className="lg:hidden flex items-center justify-between w-full">
+              <div className="flex items-center space-x-4">
+                <span className="text-gray-800 font-bold text-sm">Menu</span>
+              </div>
+              <div className="flex items-center">
+                {!isSearchOpen ? (
+                  <button
+                    type="button"
+                    onClick={handleSearchClick}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  >
+                    <Search className="w-5 h-5 text-green-600" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleSearchClose}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  >
+                    <X className="w-5 h-5 text-gray-600" />
+                  </button>
+                )}
+              </div>
             </div>
-          </nav>
+          </div>
         </div>
       </div>
+
+      {/* Mobile Search Interface */}
+      {isSearchOpen && (
+        <div className="lg:hidden border-t border-gray-200 bg-white p-4">
+          <div className="flex items-center">
+            <input
+              type="text"
+              placeholder="Search ..."
+              className="flex-1 px-4 py-3 border-0 bg-transparent focus:outline-none text-gray-700 placeholder-gray-500"
+              autoFocus
+            />
+          </div>
+        </div>
+      )}
 
       {/* Green accent line */}
       <div className="h-1 bg-green-600"></div>
