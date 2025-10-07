@@ -2,6 +2,8 @@ import { ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
+import { DialogDemo } from "./custom-dialog"
+
 export function HeroSection() {
   return (
     <section className="bg-gradient-to-r from-green-600 to-green-700 text-white py-20">
@@ -30,6 +32,8 @@ export function HeroSection() {
             >
               View Projects
             </Button>
+
+            <DialogDemo />
           </div>
         </div>
       </div>

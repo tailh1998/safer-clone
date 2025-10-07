@@ -26,6 +26,7 @@
     "pnpm-lock.yaml",
     "yarn.lock",
     "package.json",
+    "custom-autocomplete.tsx",
     "docker-compose.**.yml",
     "sonar-project.properties",
     "sonar-project.example.properties",
