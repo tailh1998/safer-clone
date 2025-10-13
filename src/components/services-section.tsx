@@ -2,6 +2,8 @@ import { Archive, Building, Cog, Package } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
+import PaginationExample from "./custom-pagination"
+
 export function ServicesSection() {
   const services = [
     {
@@ -42,7 +44,7 @@ export function ServicesSection() {
             Comprehensive storage solutions tailored to your business needs
           </p>
         </div>
-
+        <PaginationExample />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <Card
