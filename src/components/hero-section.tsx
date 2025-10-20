@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 import { DialogDemo } from "./custom-dialog"
+import TreeDragDrop from "./dnd-text"
+import GmailSidebar from "./ui/react-ab-test-new"
 
 export function HeroSection() {
   return (
@@ -17,6 +19,8 @@ export function HeroSection() {
             Leading provider of pallet racking, mezzanine floors, automation systems, and shelving
             solutions across Australia
           </p>
+          <GmailSidebar />
+          {/* <TreeDragDrop /> */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"

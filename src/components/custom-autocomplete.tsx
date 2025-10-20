@@ -180,7 +180,7 @@ export const BaseAutocomplete = <T,>({
                 const nextElement = elements[currentIndex + 1]
 
                 if (nextElement && "focus" in nextElement) {
-                  ;(nextElement as HTMLInputElement).focus()
+                  ; (nextElement as HTMLInputElement).focus()
                 }
               } else {
                 // Fallback: try to find next focusable element, excluding buttons within this component
@@ -378,10 +378,10 @@ export const BaseAutocomplete = <T,>({
                           : "cursor-pointer hover:bg-gray-200 dark:hover:bg-accent",
                         "flex  items-center justify-between rounded-sm px-3 py-2 text-sm transition-colors ",
                         index === selectedIndex &&
-                          !item.disabled &&
-                          "bg-gray-200 text-accent-foreground dark:bg-accent dark:text-white dark:hover:bg-accent",
+                        !item.disabled &&
+                        "bg-gray-200 text-accent-foreground dark:bg-accent dark:text-white dark:hover:bg-accent",
                         selectedItem?.value === item.value &&
-                          "bg-primary/10 dark:bg-gray-300 dark:text-black dark:hover:text-white"
+                        "bg-primary/10 dark:bg-gray-300 dark:text-black dark:hover:text-white"
                       )}
                     >
                       {optionRender ? (
