@@ -3,7 +3,9 @@
   "version": "0.2",
   "language": "en",
   "flagWords": [],
-  "dictionaries": ["custom-words"],
+  "dictionaries": [
+    "custom-words"
+  ],
   "dictionaryDefinitions": [
     {
       "name": "custom-words",
@@ -29,6 +31,9 @@
     "custom-autocomplete.tsx",
     "docker-compose.**.yml",
     "sonar-project.properties",
+    "custom-auto.v2.tsx",
+    "react-ab-test-new.tsx",
+    "react-ab-test.tsx",
     "sonar-project.example.properties",
     "Dockerfile.dev",
     "README.md"
