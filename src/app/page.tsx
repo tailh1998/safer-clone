@@ -1,3 +1,5 @@
-export default function HomePage() {
-  return <div>Main</div>
+import { redirect } from "next/navigation"
+
+export default function Home() {
+  redirect("/now-playing")
 }

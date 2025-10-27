@@ -1,14 +1,23 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Geist, Geist_Mono } from "next/font/google"
+import Link from "next/link"
 import type React from "react"
 
-import "./global.css"
+import "./global.scss"
 
-const inter = Inter({ subsets: ["latin"] })
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans"
+})
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono"
+})
 
 export const metadata: Metadata = {
-  title: "Elotus Movies",
-  description: "Elotus Movies"
+  title: "Movies App",
+  description: "Browse movies with The Movie Database API"
 }
 
 export default function RootLayout({
@@ -21,7 +30,16 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
-      <body className={inter.className}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <div className="app-container">
+          <header className="app-header">
+            <h1 className="logo">
+              <Link href="/">Elotus Movies</Link>
+            </h1>
+          </header>
+          <main className="app-main-wrapper">{children}</main>
+        </div>
+      </body>
     </html>
   )
 }
