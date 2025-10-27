@@ -5,7 +5,6 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import type React from "react"
 import { Suspense, useCallback, useEffect, useState } from "react"
 
-import SearchBar from "@/components/search-bar"
 import ViewToggle from "@/components/view-toggle"
 
 type ViewType = "list" | "grid"
@@ -50,7 +49,6 @@ function Controls() {
 
   return (
     <div className="controls-section">
-      <SearchBar />
       <div className="controls-row">
         <nav className="tab-navigation">
           <Link

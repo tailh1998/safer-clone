@@ -81,12 +81,13 @@ body {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   padding: 1.5rem 4rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
 
   h1 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.5px;
-    color: var(--logo);
     a {
       color: unset;
       text-decoration: none;
@@ -280,7 +281,7 @@ body {
 .search-bar {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
 
   &__input {
     width: 100%;

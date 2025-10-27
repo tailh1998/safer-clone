@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google"
 import Link from "next/link"
 import type React from "react"
 
+import SearchBar from "@/components/search-bar"
+
 import "./global.scss"
 
 const geistSans = Geist({
@@ -34,8 +36,9 @@ export default function RootLayout({
         <div className="app-container">
           <header className="app-header">
             <h1 className="logo">
-              <Link href="/">Elotusflix</Link>
+              <Link href="/">Elotus Movies</Link>
             </h1>
+            <SearchBar />
           </header>
           <main className="app-main-wrapper">{children}</main>
         </div>

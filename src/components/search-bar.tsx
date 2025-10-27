@@ -17,6 +17,14 @@ export default function SearchBar() {
     setIsOpen(!!value)
   }, [])
 
+  const handleFocus = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    if (value) {
+      setQuery(value)
+      setIsOpen(true)
+    }
+  }, [])
+
   const handleClear = () => {
     setQuery("")
     setResults([])
@@ -66,6 +74,7 @@ export default function SearchBar() {
         placeholder="Search movies..."
         value={query}
         onChange={handleChange}
+        onFocus={handleFocus}
       />
       {query && (
         <button
