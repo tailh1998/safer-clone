@@ -6,6 +6,7 @@
   "author": "Le Huu Tai - taile06121998@gmail.com",
   "description": "Elotus Movies",
   "engines": {
+    "npm": "please-use-yarn",
     "node": ">=20.17.0",
     "yarn": ">=1.22.0"
   },
