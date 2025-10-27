@@ -13,6 +13,8 @@ interface Movie {
   release_date: string
   vote_average: number
   overview: string
+  runtime: string
+  genres: any[]
 }
 
 export default function MovieDetailsPage() {
@@ -26,7 +28,9 @@ export default function MovieDetailsPage() {
       try {
         const response = await fetch(`/api/movies/${params.id}`)
         const data = await response.json()
-        setMovie(data)
+        if (!data.error) {
+          setMovie(data)
+        }
       } catch (err) {
         console.error("Failed to fetch movie:", err)
       } finally {
@@ -40,9 +44,7 @@ export default function MovieDetailsPage() {
   }, [params.id])
 
   if (loading) return <LoadingState viewType="detail" />
-  if (!movie) {
-    throw Error("Movie is not found")
-  }
+  if (!movie) return router.push(`/movie/${params.id}/not-found`)
 
   return (
     <MovieDetails

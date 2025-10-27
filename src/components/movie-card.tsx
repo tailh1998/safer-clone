@@ -11,6 +11,7 @@ interface MovieCardProps {
     poster_path: string
     release_date: string
     vote_average: number
+    overview: string
   }
   viewType: "list" | "grid"
 }
@@ -43,8 +44,9 @@ export default function MovieCard({ movie, viewType }: MovieCardProps) {
         <h3 className="movie-card__title">{movie.title}</h3>
         <div className="movie-card__meta">
           <span className="movie-card__year">{year}</span>
-          <span className="movie-card__rating">★ {movie.vote_average.toFixed(1)}</span>
+          <span className="movie-card__rating">★ {movie.vote_average?.toFixed(1)}</span>
         </div>
+        {viewType === "list" && <h5 className="movie-card__sum">{movie.overview}</h5>}
       </div>
 
       {isHovered && viewType === "list" && (

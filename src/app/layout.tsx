@@ -34,7 +34,7 @@ export default function RootLayout({
         <div className="app-container">
           <header className="app-header">
             <h1 className="logo">
-              <Link href="/">Elotus Movies</Link>
+              <Link href="/">Elotusflix</Link>
             </h1>
           </header>
           <main className="app-main-wrapper">{children}</main>

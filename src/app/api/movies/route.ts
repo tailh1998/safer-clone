@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from "next/server"
 import { env } from "@/env/client"
 
 const API_KEY = env.NEXT_PUBLIC_THE_MOVIE_DB_API_KEY
+const API_URL = env.NEXT_PUBLIC_THE_MOVIE_DB_API_URL
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
@@ -15,9 +16,7 @@ export async function GET(request: NextRequest) {
 
   try {
     const endpoint =
-      tab === "now-playing"
-        ? "https://api.themoviedb.org/3/movie/now_playing"
-        : "https://api.themoviedb.org/3/movie/top_rated"
+      tab === "now-playing" ? `${API_URL}/movie/now_playing` : `${API_URL}/movie/top_rated`
 
     const url = `${endpoint}?api_key=${API_KEY}&page=${page}`
     const response = await fetch(url)

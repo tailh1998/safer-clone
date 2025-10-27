@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from "next/server"
 import { env } from "@/env/client"
 
 const API_KEY = env.NEXT_PUBLIC_THE_MOVIE_DB_API_KEY
+const API_URL = env.NEXT_PUBLIC_THE_MOVIE_DB_API_URL
 
 export async function GET(_: NextRequest, { params }: { params: { id: string } }) {
   if (!API_KEY) {
@@ -10,9 +11,7 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
   }
 
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}?api_key=${API_KEY}`
-    )
+    const response = await fetch(`${API_URL}/movie/${params.id}?api_key=${API_KEY}`)
 
     if (!response.ok) {
       return NextResponse.json(
