@@ -2,7 +2,6 @@
   "cSpell.words": ["linebreak"],
   "indentRainbow.ignoreErrorLanguages": ["*"],
   "indentRainbow.colorOnWhiteSpaceOnly": true,
-  "files.associations": { "*.css": "tailwindcss" },
   "typescript.tsdk": "node_modules/typescript/lib",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",

@@ -119,7 +119,7 @@ const eslintConfig = [
 
   // Ignore CSS
   {
-    ignores: ["**/*.css"]
+    ignores: ["**/*.css", "**/*.scss"]
   }
 ]
 

@@ -27,8 +27,6 @@
     "yarn.lock",
     "package.json",
     "docker-compose.**.yml",
-    "sonar-project.properties",
-    "sonar-project.example.properties",
     "Dockerfile.dev",
     "README.md"
   ]
